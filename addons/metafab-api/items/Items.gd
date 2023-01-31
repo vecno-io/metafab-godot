@@ -17,7 +17,7 @@ func get_collections(public_key: String) -> String:
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func get_collection_item(collection_id: String, item_id: int) -> String:
+func get_collection_item(collection_id: String, item_id: String) -> String:
 	var headers = [
 		"accept: application/json",
 	]
@@ -58,7 +58,7 @@ func create_collection(secret_key: String, password: String, chain: String) -> S
 	else: return MetaFabRequest.Ok
 
 func create_collection_item(
-	account_token: String, account_password: String, collection_id: String, item_id: int, name: String, 
+	account_token: String, account_password: String, collection_id: String, item_id: String, name: String, 
 	descr: String, data_url: String, image_url: String, image_data: String, extra_data: Dictionary, attribute_data: Array
 ) -> String:
 	var data = {
@@ -87,7 +87,7 @@ func create_collection_item(
 	else: return MetaFabRequest.Ok
 
 
-func get_collection_item_supply(collection_id: String, item_id: int, wallet: String, id: bool = true) -> String:
+func get_collection_item_supply(collection_id: String, item_id: String, wallet: String, id: bool = true) -> String:
 	var headers = ["accept: application/json"]
 	var query: String
 	if id: query = "walletId=%s" % wallet
@@ -99,7 +99,7 @@ func get_collection_item_supply(collection_id: String, item_id: int, wallet: Str
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func get_collection_item_balance(collection_id: String, item_id: int, wallet: String, id: bool = true) -> String:
+func get_collection_item_balance(collection_id: String, item_id: String, wallet: String, id: bool = true) -> String:
 	var headers = ["accept: application/json"]
 	var query: String
 	if id: query = "walletId=%s" % wallet
@@ -220,7 +220,7 @@ func set_collection_approval(account_token: String, account_password: String, co
 	else: return MetaFabRequest.Ok
 
 
-func burn_collection_item(account_token: String, account_password: String, collection_id: String, item_id: int, amount: int) -> String:
+func burn_collection_item(account_token: String, account_password: String, collection_id: String, item_id: String, amount: int) -> String:
 	var data = {
 		"quantity": amount
 	}
@@ -237,7 +237,7 @@ func burn_collection_item(account_token: String, account_password: String, colle
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func mint_collection_item(account_token: String, account_password: String, collection_id: String, item_id: int, amount: int, reciever: String, id: bool = true) -> String:
+func mint_collection_item(account_token: String, account_password: String, collection_id: String, item_id: String, amount: int, reciever: String, id: bool = true) -> String:
 	var data = {
 		"quantity": amount
 	}
@@ -277,7 +277,7 @@ func batch_mint_collection_items(account_token: String, account_password: String
 	else: return MetaFabRequest.Ok
 
 
-func transfer_collection_item(account_token: String, account_password: String, collection_id: String, item_id: int, amount: int, reciever: String, id: bool = true) -> String:
+func transfer_collection_item(account_token: String, account_password: String, collection_id: String, item_id: String, amount: int, reciever: String, id: bool = true) -> String:
 	var data = {
 		"quantity": amount
 	}
@@ -317,7 +317,7 @@ func batch_transfer_collection_items(account_token: String, account_password: St
 	else: return MetaFabRequest.Ok
 
 
-func get_collection_item_timelock(collection_id: String, item_id: int) -> String:
+func get_collection_item_timelock(collection_id: String, item_id: String) -> String:
 	var headers = [
 		"accept: application/json",
 	]
@@ -328,7 +328,7 @@ func get_collection_item_timelock(collection_id: String, item_id: int) -> String
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func set_collection_item_timelock(account_token: String, account_password: String, collection_id: String, item_id: int, timelock: int) -> String:
+func set_collection_item_timelock(account_token: String, account_password: String, collection_id: String, item_id: String, timelock: int) -> String:
 	var data = {
 		"timelock": timelock
 	}

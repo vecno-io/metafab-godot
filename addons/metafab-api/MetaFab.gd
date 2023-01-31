@@ -230,7 +230,7 @@ func get_collections(call_object: Object, call_function: String, public_key: Str
 	if req != null: return req.get_collections(public_key)
 	return ERROR_CALL_OBJECT
 
-func get_collection_item(call_object: Object, call_function: String, collection_id: String, item_id: int) -> String:
+func get_collection_item(call_object: Object, call_function: String, collection_id: String, item_id: String) -> String:
 	var req = self._items_api_init(call_object, call_function)
 	if req != null: return req.get_collection_item(collection_id, item_id)
 	return ERROR_CALL_OBJECT
@@ -247,7 +247,7 @@ func create_collection(call_object: Object, call_function: String, secret_key: S
 	return ERROR_CALL_OBJECT
 
 func create_collection_item(
-	call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: int, 
+	call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: String, 
 	name: String, descr: String, data_url: String, image_url: String, image_data: String, extra_data: Dictionary, attribute_data: Array
 ) -> String:
 	var req = self._items_api_init(call_object, call_function)
@@ -258,12 +258,12 @@ func create_collection_item(
 	return ERROR_CALL_OBJECT
 
 
-func get_collection_item_supply(call_object: Object, call_function: String, collection_id: String, item_id: int, wallet: String, id: bool = true) -> String:
+func get_collection_item_supply(call_object: Object, call_function: String, collection_id: String, item_id: String, wallet: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
 	if req != null: return req.get_collection_item_supply(collection_id, item_id, wallet, id)
 	return ERROR_CALL_OBJECT
 
-func get_collection_item_balance(call_object: Object, call_function: String, collection_id: String, item_id: int, wallet: String, id: bool = true) -> String:
+func get_collection_item_balance(call_object: Object, call_function: String, collection_id: String, item_id: String, wallet: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
 	if req != null: return req.get_collection_item_balance(collection_id, item_id, wallet, id)
 	return ERROR_CALL_OBJECT
@@ -306,12 +306,12 @@ func set_collection_approval(call_object: Object, call_function: String, account
 	return ERROR_CALL_OBJECT
 
 
-func burn_collection_item(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: int, amount: int) -> String:
+func burn_collection_item(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: String, amount: int) -> String:
 	var req = self._items_api_init(call_object, call_function)
 	if req != null: return req.burn_collection_item(account_token, account_password, collection_id, item_id, amount)
 	return ERROR_CALL_OBJECT
 
-func mint_collection_item(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: int, amount: int, reciever: String, id: bool = true) -> String:
+func mint_collection_item(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: String, amount: int, reciever: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
 	if req != null: return req.mint_collection_item(account_token, account_password, collection_id, item_id, amount, reciever, id)
 	return ERROR_CALL_OBJECT
@@ -321,7 +321,7 @@ func batch_mint_collection_items(call_object: Object, call_function: String, acc
 	if req != null: return req.batch_mint_collection_items(account_token, account_password, collection_id, item_ids, amounts, reciever, id)
 	return ERROR_CALL_OBJECT
 
-func transfer_collection_item(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: int, amount: int, reciever: String, id: bool = true) -> String:
+func transfer_collection_item(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: String, amount: int, reciever: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
 	if req != null: return req.transfer_collection_item(account_token, account_password, collection_id, item_id, amount, reciever, id)
 	return ERROR_CALL_OBJECT
@@ -331,7 +331,7 @@ func batch_transfer_collection_items(call_object: Object, call_function: String,
 	if req != null: return req.batch_transfer_collection_items(account_token, account_password, collection_id, item_ids, amounts, recievers, id)
 	return ERROR_CALL_OBJECT
 
-func get_collection_item_timelock(call_object: Object, call_function: String, collection_id: String, item_id: int) -> String:
+func get_collection_item_timelock(call_object: Object, call_function: String, collection_id: String, item_id: String) -> String:
 	var req = self._items_api_init(call_object, call_function)
 	if req != null: return req.get_collection_item_timelock(collection_id, item_id)
 	return ERROR_CALL_OBJECT
